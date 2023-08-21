@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <title>urlshort</title>
+</head>
+<body>
+    <div class = "form">
+        <h1>Shorten a long Link</h1>
+        <h2>Paste a Long URL</h2>
+        <form method="POST" action="/create">
+            <input type="text" placeholder="Enter the link here" name="original_url">
+            <input type="submit" name="" id="">
+        </form>
+    </div>
+
+    {% if url %}
+    <div class="result">
+        <p>Shortened URL:</p>
+        <!-- <a href="{{ url }}">{{ url }}</a> -->
+        <!-- The text field -->
+    <input type="text" value="{{ url }}" id="myInput">
+
+    <!-- The button used to copy the text -->
+    <button onclick="myFunction()">Copy text</button>
+    </div>
+    <script type= "application/javascript">
+        function myFunction() {
+        // Get the text field
+        var copyText = document.getElementById("myInput");
+
+        // Select the text field
+        copyText.select(); 
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+        }
+
+        document.getElementById("myInput").value = window.location.host + "/{{ url }}";
+    </script>
+    {% endif %}
+
+    <div class = "paragraph">
+    <p>Simple and fast URL shortener!
+ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites. Just paste the long URL and click the Shorten URL button. On the next page, copy the shortened URL and share it on sites, chat and emails. After shortening the URL, check how many clicks it received.</p>
+    </div>
+</body>
+</html>

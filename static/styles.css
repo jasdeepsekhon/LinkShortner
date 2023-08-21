@@ -1,0 +1,17 @@
+body {
+    background-color: azure;
+}
+
+.form {
+    text-align: center;
+
+}
+
+.paragraph {
+    margin: 10px 20px;
+    text-align: center;
+}
+
+.result {
+    text-align: center;
+}
